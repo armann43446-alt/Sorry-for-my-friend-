@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Sincere Apology</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eee0c9, #d6c1a2);
+  font-family: Georgia, serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 15px;
+  color: #493526;
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+}
+
+.top-label {
+  letter-spacing: 4px;
+  font-size: 12px;
+  color: #896c4f;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  color: #806b57;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.envelope-area {
+  cursor: pointer;
+  perspective: 1000px;
+  margin: 30px auto;
+  width: 280px;
+  height: 185px;
+  position: relative;
+}
+
+.envelope {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #b98254;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px #70543b55;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #d6a575;
+  clip-path: polygon(0 0, 50% 58%, 100% 0);
+  transform-origin: top;
+  transition: transform 0.8s;
+  z-index: 3;
+}
+
+.envelope::after {
+  content: "A LETTER FOR YOU";
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff5e8;
+  font-size: 12px;
+  letter-spacing: 3px;
+  z-index: 4;
+}
+
+.envelope.open::before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.flap-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 15px;
+  letter-spacing: 3px;
+  z-index: 5;
+}
+
+.click-text {
+  margin-top: 20px;
+  color: #806b57;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.letter {
+  display: none;
+  background: #fffaf0;
+  padding: 35px 25px;
+  margin: 35px auto;
+  border: 1px solid #d8c4a5;
+  box-shadow: 0 12px 35px #71553825;
+  border-radius: 4px;
+  text-align: left;
+  line-height: 1.9;
+  animation: appear 1s ease;
+}
+
+.letter.show {
+  display: block;
+}
+
+.letter h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 25px;
+  color: #795337;
+}
+
+.letter p {
+  margin-bottom: 17px;
+  font-size: 15px;
+}
+
+.friendship-ending {
+  margin-top: 35px;
+  padding: 30px 15px;
+  text-align: center;
+  background: #f0e3cd;
+  border: 2px solid #c5a47d;
+  border-radius: 8px;
+}
+
+.friendship-ending h2 {
+  font-size: clamp(27px, 7vw, 43px);
+  line-height: 1.4;
+  color: #79502f;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.friendship-ending p {
+  font-size: 15px;
+  color: #80664d;
+}
+
+.signature {
+  text-align: right;
+  margin-top: 25px;
+  font-style: italic;
+}
+
+button {
+  background: #795337;
+  color: white;
+  border: none;
+  padding: 13px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #563921;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(max-width: 480px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  .letter {
+    padding: 25px 18px;
+  }
+
+  .letter p {
+    font-size: 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="top-label">A MESSAGE FROM A FRIEND</div>
+
+  <h1>A Little Apology</h1>
+
+  <p class="subtitle">
+    Sometimes words can hurt.<br>
+    And sometimes a sincere sorry can make things better.
+  </p>
+
+  <div class="envelope-area" onclick="openLetter()">
+    <div class="envelope" id="envelope">
+      <div class="flap-text">FRIEND</div>
+    </div>
+  </div>
+
+  <div class="click-text" id="clickText">
+    CLICK TO OPEN YOUR LETTER
+  </div>
+
+  <div class="letter" id="letter">
+
+    <h2>Dear Friend,</h2>
+
+    <p>
+      Mainu samajh nahi aa reha ki gall kitthon shuru karaan,
+      par main dil ton tainu kujh kehna chaunda haan.
+    </p>
+
+    <p>
+      Sab ton pehlan, main tethon dil ton maafi mangda haan.
+      Je main kade tere naal galat tareeke naal gall kiti,
+      koi galat gall kahi, jaan meri kise gall naal tainu
+      bura lagga hove, taan I'm genuinely sorry.
+    </p>
+
+    <p>
+      Tu meri ik changi dost hai. Tere naal aam gallan karna,
+      hassna te apniyan gallan share karna mainu changa lagda hai.
+      Teri dosti mere layi maayne rakhdi hai.
+    </p>
+
+    <p>
+      Shayad main saadi dosti nu lai ke kujh gallan galat
+      samajh baitha si, jaan apni gall sahi tareeke naal
+      samjha nahi paya. Je meri kise gall naal tainu
+      pareshani hoi hove, taan main apni galti mann da haan.
+    </p>
+
+    <p><strong>I'm truly sorry for everything.</strong></p>
+
+    <p>
+      Mera kade vi tainu dukh pahunchaan jaan uncomfortable
+      feel karvaun da iraada nahi si. Je meri kise gall naal
+      tainu bura lagga, taan main dil ton maafi mangda haan.
+    </p>
+
+    <p>
+      Main teri te teriyan feelings di izzat karda haan.
+      Mainu tere ton kise tarah di koi umeed nahi.
+      Bas eh chaunda haan ki saadi dosti vich pehlan vang
+      hi apnapan te respect bani rahe.
+    </p>
+
+    <p>
+      Main apni galti samajhda haan te agge ton apniyan
+      gallan da hor dhyaan rakhanga. Tainu jawab den di
+      koi jaldi nahi hai.
+    </p>
+
+    <p>
+      Bas ena hi kehna si — I'm really, genuinely sorry.
+    </p>
+
+    <div class="signature">
+      With sincere apologies,<br>
+      Your Friend.
+    </div>
+
+    <div class="friendship-ending">
+
+      <h2>
+        ASI BEST FRIENDS BAN SAKDE HAAN!
+        <br><br>
+        IK DUJE LAYI IK KHAAS DOST BAN KE! ❤️
+      </h2>
+
+      <p>
+        Bina kise pressure de, sirf sachchi dosti,
+        bharosa te respect naal.
+      </p>
+
+    </div>
+
+  </div>
+
+  <button onclick="openLetter()">Open My Message</button>
+
+</div>
+
+<script>
+function openLetter() {
+  document.getElementById("envelope").classList.add("open");
+
+  document.getElementById("letter").classList.add("show");
+
+  document.getElementById("clickText").innerText =
+    "YOUR LETTER IS OPEN ❤️";
+
+  setTimeout(function() {
+    document.getElementById("letter").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 300);
+}
+</script>
+
+</body>
+</html>
